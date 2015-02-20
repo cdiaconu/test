@@ -1,0 +1,94 @@
+@CHARSET "ISO-8859-1";
+
+@import
+	url(http://fonts.googleapis.com/css?family=Raleway:400,300,100,500,700,800,900)
+	;
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+@import
+	url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css)
+	;
+
+.title-box {
+	margin: 0 0 30px;
+}
+
+.title-box .title-box_primary {
+	font: 600 50px/1.0em 'Raleway', sans-serif;
+	text-transform: none;
+	color: #323232;
+	text-align: left;
+	margin: 0 0 30px;
+	font-weight: normal;
+	text-align: center;
+}
+
+div.home {
+	margin: auto;
+	width: 825px;
+	height: 50px;
+	background-color: #eee;
+	border: 1px solid;
+	border-color: rgb(223, 222, 222);
+	border-radius: 3px 3px 0px 0px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: Lato, sans-serif;
+	color: #23ba85;
+	padding-top: 10px;
+}
+
+.homePage {
+	padding: 10px;
+	width: 100%;
+	text-decoration: none;
+	color: #23ba85;
+	padding-left: 10px;
+}
+
+div.content {
+	margin: auto;
+	width: 825px;
+	border: 1px solid;
+	border-color: rgb(223, 222, 222);
+	border-radius: 3px 3px 0px 0px;
+	margin-bottom: 20px;
+}
+
+/* PROJECTS */
+.addNew {
+	background-color: #eee;
+	padding: 25px;
+	width: 50%;
+}
+
+.project-input {
+	width: 260px;
+	height: 20px;
+	padding: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: Raleway, sans-serif;
+	vertical-align: middle;
+}
+
+.errors {
+	border-color: rgb(255, 0, 0);
+}
+
+.project-input {
+	width: 260px;
+	height: 20px;
+	padding: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: Raleway, sans-serif;
+	vertical-align: middle;
+}
