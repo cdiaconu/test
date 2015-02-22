@@ -1,0 +1,19 @@
+Testsuite: test.ProjectSpec
+Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 3.505 sec
+------------- Standard Output ---------------
+--Output from validate name and code alphanumeric fields--
+--Output from validate nullable fields--
+--Output from validate priority range - add new project--
+--Output from validate priority range - update project--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from validate name and code alphanumeric fields--
+--Output from validate nullable fields--
+--Output from validate priority range - add new project--
+--Output from validate priority range - update project--
+------------- ---------------- ---------------
+
+Testcase: validate name and code alphanumeric fields took 0.821 sec
+Testcase: validate nullable fields took 0.285 sec
+Testcase: validate priority range - add new project took 2.06 sec
+Testcase: validate priority range - update project took 0.324 sec

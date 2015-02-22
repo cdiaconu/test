@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Cristi-PC" name="test.ProjectControllerSpec" tests="3" time="14.108" timestamp="2015-02-22T22:14:32">
+  <properties />
+  <testcase classname="test.ProjectControllerSpec" name="test index" time="13.715" />
+  <testcase classname="test.ProjectControllerSpec" name="test update" time="0.136" />
+  <testcase classname="test.ProjectControllerSpec" name="test save" time="0.146" />
+  <system-out><![CDATA[--Output from test index--
+--Output from test update--
+--Output from test save--
+]]></system-out>
+  <system-err><![CDATA[--Output from test index--
+--Output from test update--
+--Output from test save--
+]]></system-err>
+</testsuite>

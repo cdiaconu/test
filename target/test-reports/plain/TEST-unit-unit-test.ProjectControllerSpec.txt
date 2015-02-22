@@ -1,1 +1,16 @@
 Testsuite: test.ProjectControllerSpec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 14.108 sec
+------------- Standard Output ---------------
+--Output from test index--
+--Output from test update--
+--Output from test save--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from test index--
+--Output from test update--
+--Output from test save--
+------------- ---------------- ---------------
+
+Testcase: test index took 13.715 sec
+Testcase: test update took 0.136 sec
+Testcase: test save took 0.146 sec

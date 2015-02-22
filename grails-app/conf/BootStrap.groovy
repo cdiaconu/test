@@ -13,6 +13,8 @@ class BootStrap {
 		Phase phase_development = new Phase(id: "4", name : "Development").save(failOnError : true)
 		Phase phase_qa = new Phase(id: "5", name : "Qa").save(failOnError : true)
 		Phase phase_release = new Phase(id: "6", name : "Release").save(failOnError : true)
+		
+		servletContext.setAttribute("phases", Phase.list())
 
 		Role role_lead = new Role(id: "1", positionTitle : "Technical Lead").save(failOnError : true)
 		Role role_manager = new Role(id: "2", positionTitle : "Project Manager").save(failOnError : true)
@@ -23,6 +25,9 @@ class BootStrap {
 		Employee manager_1 = new Employee(firstName : "Manager", lastName : "1", role : role_manager).save(failOnError : true)
 		Employee manager_2 = new Employee(firstName : "Manager", lastName : "2", role : role_manager).save(failOnError : true)
 		Employee manager_3 = new Employee(firstName : "Manager", lastName : "3", role : role_manager).save(failOnError : true)
+		
+		servletContext.setAttribute("leads", Employee.findAllByRole(role_lead, []))
+		servletContext.setAttribute("managers", Employee.findAllByRole(role_manager, []))
 
 		new Project(
 				name : "name1",

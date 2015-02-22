@@ -30,13 +30,13 @@
 	   			<div>
 	   				<span>Technical Lead:</span>
 	   				<span class="required-indicator">&nbsp;</span>
-	   				<g:select optionKey="id" optionValue="fullName" name="techLead" from="${techLeads}"/>
+	   				<g:select optionKey="id" value="${project?.techLead.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="techLead" from="${application.leads}" />
 	   			</div>
 	   			
 	           	<div>
 	           		<span>Project Manager:</span>
 	           		<span class="required-indicator">&nbsp;</span>
-	           		<g:select optionKey="id" optionValue="fullName" name="projectManager" from="${managers}"/>
+	           		<g:select optionKey="id" value="${project?.projectManager.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="projectManager" from="${application.managers}" />
 	           	</div>
 	           	
 	           	<div>
@@ -48,7 +48,7 @@
 	           	<div>
 	           		<span>Project Phase:</span>
 	           		<span class="required-indicator">&nbsp;</span>
-	           		<g:select optionKey="id" optionValue="name" name="phase" from="${phases}"/>
+	           		<g:select optionKey="id" value="${project?.phase.name}" optionValue="name" name="phase" from="${application.phases}"/>
 	           	</div>
 	           	
 	           	<div>

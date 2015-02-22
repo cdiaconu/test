@@ -20,6 +20,10 @@ class ProjectService {
 		projectCriteria.addOrder(Order.asc("priority"))
 		return projectCriteria.list()
 	}
+	
+	def get(String id){
+		return Project.get(Long.valueOf(id))
+	}
 
 	def save(Project project) {
 		EnumPriorityUpdateType updateType = project.id ? EnumPriorityUpdateType.UPDATE : EnumPriorityUpdateType.INSERT

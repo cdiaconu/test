@@ -3,9 +3,7 @@ package test
 class ProjectController {
 
 	def projectService
-	def employeeService
-	def phaseService
-  
+
 	def index() {
 		def projects = projectService.getAllProjects()
 		render (view : 'index', model : [projects : projects])
@@ -13,42 +11,30 @@ class ProjectController {
 
 	def create(){
 		def project = new Project()
-		bindData(project, params, [include: ['name', 'code', 'techLead', 'projectManager', 'deliveryDate', 'phase', 'priority']])
-
-		def techLeads = employeeService.getAllTechnicalLeads()
-		def managers = employeeService.getAllProjectManagers()
-		def phases = phaseService.getPhases()
-
-		render ( view : "create", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
+		bindData(project, params, [include: [
+				'name',
+				'code',
+				'techLead',
+				'projectManager',
+				'deliveryDate',
+				'phase',
+				'priority'
+			]])
+		render ( view : "create", model: [project : project])
 	}
-	
+
 	def update(){
-		def project = Project.get(params.id)
-
-		def techLeads = employeeService.getAllTechnicalLeads()
-		def managers = employeeService.getAllProjectManagers()
-		def phases = phaseService.getPhases()
-
-		render ( view : "create", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
+		def project = projectService.get(params.id)
+		render ( view : "create", model: [project : project])
 	}
 
 	def save(Project project){
-		println params
-
 		if (project && project.validate()){
 			projectService.save(project)
-		}
-		else{
-			project.errors.allErrors.each { println it }
-			def techLeads = employeeService.getAllTechnicalLeads()
-			def managers = employeeService.getAllProjectManagers()
-			def phases = phaseService.getPhases()
-			render ( view : "create", model : [project : project, techLeads : techLeads, managers : managers, phases : phases] )
-
+			redirect action : "index"
 			return
 		}
-
-		redirect action : "index"
+		render ( view : "create", model : [project : project] )
 	}
 
 	def delete(Project project){
