@@ -11,20 +11,25 @@ class ProjectController {
 		render (view : 'index', model : [projects : projects])
 	}
 
-	def showCreate(Project project){
+	def create(){
+		def project = new Project()
+		bindData(project, params, [include: ['name', 'code', 'techLead', 'projectManager', 'deliveryDate', 'phase', 'priority']])
+
 		def techLeads = employeeService.getAllTechnicalLeads()
 		def managers = employeeService.getAllProjectManagers()
 		def phases = phaseService.getPhases()
 
 		render ( view : "create", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
 	}
-	
-	def edit(Project project){
+
+	def update(){
+		def project = Project.get(params.id)
+
 		def techLeads = employeeService.getAllTechnicalLeads()
 		def managers = employeeService.getAllProjectManagers()
 		def phases = phaseService.getPhases()
 
-		render ( view : "update", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
+		render ( view : "create", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
 	}
 
 	def save(Project project){
@@ -38,29 +43,18 @@ class ProjectController {
 			def techLeads = employeeService.getAllTechnicalLeads()
 			def managers = employeeService.getAllProjectManagers()
 			def phases = phaseService.getPhases()
-
 			render ( view : "create", model : [project : project, techLeads : techLeads, managers : managers, phases : phases] )
+
 			return
 		}
 
-		redirect (action : "index")
+		redirect action : "index"
 	}
-	
-	def update(Project project){
-		if (project && project.validate()){
-			projectService.update(project)
-		}
-		else{
-			project.errors.allErrors.each { println it }
-			def techLeads = employeeService.getAllTechnicalLeads()
-			def managers = employeeService.getAllProjectManagers()
-			def phases = phaseService.getPhases()
 
-			render ( view : "update", model : [project : project, techLeads : techLeads, managers : managers, phases : phases] )
-			return
+	def delete(Project project){
+		if (project){
+			projectService.delete(project);
 		}
-
-		redirect (action : "index")
-		
+		redirect action : "index"
 	}
 }

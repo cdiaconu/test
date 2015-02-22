@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="Cristi-PC" id="0" name="ProjectSpec" package="test" tests="1" time="31.906" timestamp="2015-02-22T07:52:33">
+      <properties />
+
+      <testcase classname="test.ProjectSpec" name="validate priority range - add new project" time="31.828" />
+
+      <system-out><![CDATA[--Output from validate priority range - add new project--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from validate priority range - add new project--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

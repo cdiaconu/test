@@ -5,7 +5,7 @@ class EmployeeDto {
 	String firstName
 	String lastName
 	String fullName
-	
+
 	public String getFullName() {
 		return firstName + " " + lastName
 	}

@@ -22,10 +22,26 @@ class ProjectService {
 	}
 
 	def save(Project project) {
+		EnumPriorityUpdateType updateType = project.id ? EnumPriorityUpdateType.UPDATE : EnumPriorityUpdateType.INSERT
+		int originalPriority = project.priority
+		if (project.id){
+			originalPriority = project.getPersistentValue("priority")
+		}
+		
 		project.save()
+		
+		IPriorityUpdateStrategy strategy = PriorityUpdateStrategyFactory.getStrategy(project.priority, originalPriority, updateType, project.id)
+		Session session = sessionFactory.openSession()
+		strategy.updatePriority(session)
+		session.close()
 	}
-	
-	def update(Project project) {
-		project.merge()
+
+	def delete(Project project){
+		IPriorityUpdateStrategy strategy = PriorityUpdateStrategyFactory.getStrategy(project.priority, project.priority, EnumPriorityUpdateType.DELETE, project.id)
+		Session session = sessionFactory.openSession()
+		strategy.updatePriority(session)
+		session.close()
+		
+		project.delete()
 	}
 }

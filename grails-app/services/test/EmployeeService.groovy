@@ -11,6 +11,7 @@ import org.hibernate.transform.Transformers
 import org.springframework.beans.factory.annotation.Autowired
 
 import dto.EmployeeDto
+import enums.EnumPositionTitle
 
 @Transactional
 class EmployeeService {
@@ -19,14 +20,14 @@ class EmployeeService {
 	SessionFactory sessionFactory;
 
 	def getAllTechnicalLeads(){
-		return getEmployeesByPositionTitle("Technical Lead")
+		return getEmployeesByPositionTitle(EnumPositionTitle.TECHNICAL_LEAD.getId())
 	}
 
 	def getAllProjectManagers(){
-		return getEmployeesByPositionTitle("Project Manager")
+		return getEmployeesByPositionTitle(EnumPositionTitle.PROJECT_MANAGER.getId())
 	}
 
-	def getEmployeesByPositionTitle(String positionTitle){
+	def getEmployeesByPositionTitle(long positionTitleId){
 		Session session = sessionFactory.getCurrentSession()
 		Criteria employeeCriteria = session.createCriteria(Employee.class, "employee")
 		employeeCriteria.createAlias("employee.role", "role")
@@ -39,8 +40,9 @@ class EmployeeService {
 				.add(Projections.alias(Projections.property("employee.lastName"),
 				"lastName"))
 				)
-		employeeCriteria.add(Restrictions.eq("role.positionTitle", positionTitle))
+		employeeCriteria.add(Restrictions.eq("role.id", positionTitleId))
 		employeeCriteria.setResultTransformer(Transformers.aliasToBean(EmployeeDto.class))
+		employeeCriteria.setCacheable(true)
 		List<EmployeeDto> employeeDtos = employeeCriteria.list()
 
 		return employeeDtos

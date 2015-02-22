@@ -4,8 +4,7 @@
 <body>
 
 	<div class="home">
-		<g:link class="homePage" action="index">Home</g:link>&nbsp;|&nbsp;
-		<g:link class="homePage" action="showCreate">Create Project</g:link>
+		<g:link class="homePage" action="index">Home</g:link>
 	</div>
 			
 	<div class="title-box">
@@ -15,13 +14,14 @@
    	<div class="content">
 	   	<div class="add-new">
 	   		<g:form controller="project">
+	   			<g:hiddenField name="id" value="${project?.id}" />
 	   			<div><span class="required-indicator">*</span></div>
 	           	<div>
 	           		<g:textField class="project-input ${hasErrors(bean:project, field:'name','errors')}" placeholder="Name" value="${project?.name}" name="name"/>
 	           	</div>
 	           	<div><span class="required-indicator">*</span></div>
 	           	<div>
-	           		<g:textField class="project-input ${hasErrors(bean:project, field:'name','errors')}" placeholder="Project Code" value="${project?.code}" name="code"/>
+	           		<g:textField class="project-input ${hasErrors(bean:project, field:'code','errors')}" placeholder="Project Code" value="${project?.code}" name="code"/>
 	           	</div>
 	           	<div>
 	           		<g:select optionKey="id" optionValue="fullName" name="techLead" from="${techLeads}"/>
@@ -36,9 +36,10 @@
 	           		<g:select optionKey="id" optionValue="name" name="phase" from="${phases}"/>
 	           	</div>
 	           	<div>
-	           		<g:textField class="project-input ${hasErrors(bean:project, field:'priority','errors')}" placeholder="Priority" value="${project?.priority}" name="priority"/>
+	           		<g:textField class="project-input ${hasErrors(bean:project, field:'priority','errors')}" placeholder="Priority" 
+	           		 value="${hasErrors(bean: project, field: 'priority', '1') ? '' : fieldValue(bean: project, field: 'priority')}" name="priority"/>
 	           	</div>
-	           	<div><g:actionSubmit class="artist-add" value="Add New Project" action="save"/></div>
+	           	<div><g:actionSubmit class="artist-add" value="Save" action="save"/></div>
 	      	 </g:form>
 	   	</div>
 	   	

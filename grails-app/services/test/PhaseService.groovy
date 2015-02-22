@@ -11,7 +11,6 @@ class PhaseService {
 	@Autowired
 	SessionFactory sessionFactory;
 
-
 	def getPhases(){
 		return Phase.list()
 	}

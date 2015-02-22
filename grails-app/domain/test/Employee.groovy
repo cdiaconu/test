@@ -6,6 +6,8 @@ class Employee {
 	String lastName
 	Role role
 
+	static mapping = { cache true }
+
 	static constraints = {
 	}
 }
