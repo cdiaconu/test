@@ -5,7 +5,7 @@ class ProjectController {
 	def projectService
 	def employeeService
 	def phaseService
-
+  
 	def index() {
 		def projects = projectService.getAllProjects()
 		render (view : 'index', model : [projects : projects])
@@ -21,7 +21,7 @@ class ProjectController {
 
 		render ( view : "create", model: [project : project, techLeads : techLeads, managers : managers, phases : phases])
 	}
-
+	
 	def update(){
 		def project = Project.get(params.id)
 

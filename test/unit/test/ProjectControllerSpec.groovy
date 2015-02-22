@@ -27,7 +27,7 @@ class ProjectControllerSpec extends Specification {
 		controller.index();
 
 		then:
-		view == '/artist/index'
+		view == '/project/index'
 		model.projects == [project]
 	}
 }

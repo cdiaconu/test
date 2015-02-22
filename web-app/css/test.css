@@ -17,7 +17,7 @@
 .title-box .title-box_primary {
 	font: 600 50px/1.0em 'Raleway', sans-serif;
 	text-transform: none;
-	color: #323232;
+	color: #23ba85;
 	text-align: left;
 	margin: 0 0 30px;
 	font-weight: normal;
@@ -35,32 +35,103 @@ div.home {
 	margin-bottom: 20px;
 	font-size: 20px;
 	font-family: Lato, sans-serif;
-	color: #23ba85;
-	padding-top: 10px;
+	padding-top: 20px;
 }
 
 .homePage {
 	padding: 10px;
 	width: 100%;
 	text-decoration: none;
-	color: #23ba85;
 	padding-left: 10px;
+	color: black;
 }
 
-div.content {
+/* PROJECTS */
+
+.projects-list{
+	font-family: Lato, sans-serif;
+	border-collapse: collapse;
 	margin: auto;
-	width: 825px;
+	width: 80%;
+	border: 1px solid rgb(223, 222, 222);
+}
+
+.projects-list thead{
+	font-weight: bold;
+	background-color: #eee;
+}
+
+.projects-list thead td{
+	border: 1px solid rgb(223, 222, 222);
+}
+
+.delete-image img{
+	height:20px; 
+	width:20px;
+	opacity:0.4;
+}
+
+a.delete-image:hover img{
+	opacity:0.7;
+}
+
+.update-link{
+	color: black;
+}
+
+/* CREATE */
+div.content-add {
+	margin: auto;
+	width: 513px;
 	border: 1px solid;
 	border-color: rgb(223, 222, 222);
 	border-radius: 3px 3px 0px 0px;
 	margin-bottom: 20px;
+	font-family: Lato, sans-serif;
 }
 
-/* PROJECTS */
-.addNew {
+.add-new {
 	background-color: #eee;
 	padding: 25px;
-	width: 50%;
+}
+
+.add-new div{
+	margin-bottom: 10px;
+}
+
+.add-new div span:first-child{
+	width: 135px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.add-new select{
+	padding: 10px;
+	margin-right: 10px;
+	border-radius: 3px;
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.required-indicator{
+	width: 6px;
+	display: inline-block;
+}
+
+.project-add-content{
+	text-align: center;
+}
+.project-add{
+	vertical-align:middle;
+    width:100px;
+    height:41px;
+    padding:0px;
+    border:1px solid #5b5b5b;
+    background-color:#5b5b5b;
+    color: white;
+    font-weight:bold;
+    border-radius:3px;
+    font:15px FontAwesome, sans-serif;	
 }
 
 .project-input {
@@ -68,9 +139,7 @@ div.content {
 	height: 20px;
 	padding: 10px;
 	margin-right: 10px;
-	font-weight: bold;
 	border-radius: 3px;
-	font-weight: bold;
 	font-size: 15px;
 	font-family: Raleway, sans-serif;
 	vertical-align: middle;
@@ -78,17 +147,4 @@ div.content {
 
 .errors {
 	border-color: rgb(255, 0, 0);
-}
-
-.project-input {
-	width: 260px;
-	height: 20px;
-	padding: 10px;
-	margin-right: 10px;
-	font-weight: bold;
-	border-radius: 3px;
-	font-weight: bold;
-	font-size: 15px;
-	font-family: Raleway, sans-serif;
-	vertical-align: middle;
 }

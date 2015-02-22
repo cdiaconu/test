@@ -11,35 +11,54 @@
         <h2 class="title-box_primary">Projects Management</h2>
    	</div>
    	
-   	<div class="content">
+   	<div class="content-add">
 	   	<div class="add-new">
 	   		<g:form controller="project">
 	   			<g:hiddenField name="id" value="${project?.id}" />
-	   			<div><span class="required-indicator">*</span></div>
+	   			<div>
+	   				<span>Project Name:</span>
+	   				<span class="required-indicator">*</span>
+	   				<g:textField class="project-input ${hasErrors(bean:project, field:'name','errors')}" placeholder="Name" value="${project?.name}" name="name"/>
+	   			</div>
+	   			
+	   			<div>
+	   				<span>Project Code:</span>
+	   				<span class="required-indicator">*</span>
+	   				<g:textField class="project-input ${hasErrors(bean:project, field:'code','errors')}" placeholder="Project Code" value="${project?.code}" name="code"/>
+	   			</div>
+	   			
+	   			<div>
+	   				<span>Technical Lead:</span>
+	   				<span class="required-indicator">&nbsp;</span>
+	   				<g:select optionKey="id" optionValue="fullName" name="techLead" from="${techLeads}"/>
+	   			</div>
+	   			
 	           	<div>
-	           		<g:textField class="project-input ${hasErrors(bean:project, field:'name','errors')}" placeholder="Name" value="${project?.name}" name="name"/>
-	           	</div>
-	           	<div><span class="required-indicator">*</span></div>
-	           	<div>
-	           		<g:textField class="project-input ${hasErrors(bean:project, field:'code','errors')}" placeholder="Project Code" value="${project?.code}" name="code"/>
-	           	</div>
-	           	<div>
-	           		<g:select optionKey="id" optionValue="fullName" name="techLead" from="${techLeads}"/>
-	           	</div>
-	           	<div>
+	           		<span>Project Manager:</span>
+	           		<span class="required-indicator">&nbsp;</span>
 	           		<g:select optionKey="id" optionValue="fullName" name="projectManager" from="${managers}"/>
 	           	</div>
+	           	
 	           	<div>
+	           		<span>Delivery Date:</span>
+	           		<span class="required-indicator">&nbsp;</span>
 	           		<g:datePicker name="deliveryDate" value="${new Date()}" precision="day" />
 	           	</div>
+	           	
 	           	<div>
+	           		<span>Project Phase:</span>
+	           		<span class="required-indicator">&nbsp;</span>
 	           		<g:select optionKey="id" optionValue="name" name="phase" from="${phases}"/>
 	           	</div>
+	           	
 	           	<div>
+	           		<span>Priority:</span>
+	           		<span class="required-indicator">&nbsp;</span>
 	           		<g:textField class="project-input ${hasErrors(bean:project, field:'priority','errors')}" placeholder="Priority" 
-	           		 value="${hasErrors(bean: project, field: 'priority', '1') ? '' : fieldValue(bean: project, field: 'priority')}" name="priority"/>
+	           		 value="${hasErrors(bean: project, field: 'priority', '1') || fieldValue(bean: project, field: 'priority')=="0" ? '' : fieldValue(bean: project, field: 'priority')}" name="priority"/>
 	           	</div>
-	           	<div><g:actionSubmit class="artist-add" value="Save" action="save"/></div>
+	           	
+	           	<div class="project-add-content"><g:actionSubmit class="project-add" value="Save" action="save"/></div>
 	      	 </g:form>
 	   	</div>
 	   	

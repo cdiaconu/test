@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Cristi-PC" id="0" name="ProjectSpec" package="test" tests="1" time="31.906" timestamp="2015-02-22T07:52:33">
+  <testsuite errors="0" failures="0" hostname="Cristi-PC" id="0" name="ProjectControllerSpec" package="test" tests="1" time="28.828" timestamp="2015-02-22T09:00:27">
       <properties />
 
-      <testcase classname="test.ProjectSpec" name="validate priority range - add new project" time="31.828" />
+      <testcase classname="test.ProjectControllerSpec" name="test index" time="28.708" />
 
-      <system-out><![CDATA[--Output from validate priority range - add new project--
+      <system-out><![CDATA[--Output from test index--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from validate priority range - add new project--
+      <system-err><![CDATA[--Output from test index--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Cristi-PC" id="1" name="ProjectSpec" package="test" tests="4" time="6.907" timestamp="2015-02-22T09:00:56">
+      <properties />
+
+      <testcase classname="test.ProjectSpec" name="validate name and code alphanumeric fields" time="4.269" />
+
+      <testcase classname="test.ProjectSpec" name="validate nullable fields" time="0.182" />
+
+      <testcase classname="test.ProjectSpec" name="validate priority range - add new project" time="2.157" />
+
+      <testcase classname="test.ProjectSpec" name="validate priority range - update project" time="0.287" />
+
+      <system-out><![CDATA[--Output from validate name and code alphanumeric fields--
+--Output from validate nullable fields--
+--Output from validate priority range - add new project--
+--Output from validate priority range - update project--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from validate name and code alphanumeric fields--
+--Output from validate nullable fields--
+--Output from validate priority range - add new project--
+--Output from validate priority range - update project--
 ]]></system-err>
 
   </testsuite>
