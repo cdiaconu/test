@@ -14,10 +14,7 @@ class ProjectController {
 		bindData(project, params, [include: [
 				'name',
 				'code',
-				'techLead',
-				'projectManager',
 				'deliveryDate',
-				'phase',
 				'priority'
 			]])
 		render ( view : "create", model: [project : project])

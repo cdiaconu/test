@@ -30,32 +30,32 @@
 	   			<div>
 	   				<span>Technical Lead:</span>
 	   				<span class="required-indicator">&nbsp;</span>
-	   				<g:select optionKey="id" value="${project?.techLead.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="techLead" from="${application.leads}" />
+	   				<g:select optionKey="id" value="${project?.techLead?.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="techLead" from="${application.leads}" />
 	   			</div>
 	   			
 	           	<div>
 	           		<span>Project Manager:</span>
 	           		<span class="required-indicator">&nbsp;</span>
-	           		<g:select optionKey="id" value="${project?.projectManager.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="projectManager" from="${application.managers}" />
+	           		<g:select optionKey="id" value="${project?.projectManager?.firstName}" optionValue="${{it.firstName +' '+it.lastName}}" name="projectManager" from="${application.managers}" />
 	           	</div>
 	           	
 	           	<div>
 	           		<span>Delivery Date:</span>
 	           		<span class="required-indicator">&nbsp;</span>
-	           		<g:datePicker name="deliveryDate" value="${new Date()}" precision="day" />
+	           		<g:datePicker name="deliveryDate" value="${project?.deliveryDate}" precision="day" />
 	           	</div>
 	           	
 	           	<div>
 	           		<span>Project Phase:</span>
 	           		<span class="required-indicator">&nbsp;</span>
-	           		<g:select optionKey="id" value="${project?.phase.name}" optionValue="name" name="phase" from="${application.phases}"/>
+	           		<g:select optionKey="id" value="${project?.phase?.name}" optionValue="name" name="phase" from="${application.phases}"/>
 	           	</div>
 	           	
 	           	<div>
 	           		<span>Priority:</span>
 	           		<span class="required-indicator">&nbsp;</span>
 	           		<g:textField class="project-input ${hasErrors(bean:project, field:'priority','errors')}" placeholder="Priority" 
-	           		 value="${hasErrors(bean: project, field: 'priority', '1') || fieldValue(bean: project, field: 'priority')=="0" ? '' : fieldValue(bean: project, field: 'priority')}" name="priority"/>
+	           		 value="${hasErrors(bean: project, field: 'priority', '1') || fieldValue(bean: project, field: 'priority') == "0" ? '' : fieldValue(bean: project, field: 'priority')}" name="priority"/>
 	           	</div>
 	           	
 	           	<div class="project-add-content"><g:actionSubmit class="project-add" value="Save" action="save"/></div>
